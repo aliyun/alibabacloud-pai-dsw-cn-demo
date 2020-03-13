@@ -373,11 +373,6 @@ class DeepFM(object):
             end_pos = 5 + len(self.multi_tags_col_name)
             self.multi_tags = v[5: end_pos]
         
-        sess = tf.Session()
-        sess.run(self.iterator.initializer)
-        sess.run(tf.global_variables_initializer())
-        sess.run(tf.tables_initializer())
-        sess.run(v)
         # prepare for predict operation
         if self.mode == "predict":
             rows = v[end_pos:]
